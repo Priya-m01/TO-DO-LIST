@@ -1,0 +1,45 @@
+<h1>To-Do List</h1>
+
+<div class="input-container">
+  <input class="input" type="text" [(ngModel)]="task" placeholder="Enter Task" />
+
+  <div class="datetime"> //for date and time 
+    <input  class="date"
+    type="date"
+    matInput
+    [matDatepicker]="picker"
+    [(ngModel)]="currentDateTime" 
+    [min]="minDate"
+     />
+    <mat-datepicker #picker></mat-datepicker>
+    <input
+    class="time"
+    [(ngModel)]="currentTime"
+    type="time"
+    [min]="minTime"
+    />
+  </div>
+</div>
+
+<button class="addtask" (click)="editTaskId ? saveTask(editTaskId) : addTask()">
+  {{ editTaskId ? 'Update' : 'Add Task' }}
+</button>
+
+@for(task of taskList; track task.id){
+<ul class="task-List">
+  <li>{{ task.id }}</li>
+  <li>
+    <input *ngIf="task.isEdit" id="input-{{task.id}}" type="text" [(ngModel)]="task.task" />
+    <span *ngIf="!task.isEdit"  [class.completed-text]="task.isCompleted">{{ task.task }}</span>
+  </li>
+  <li>
+    <span class="datetime">{{ task.dateTime | date:"d-m-y HH:mm" }}</span>
+  </li>
+  <li>
+    <button *ngIf="!task.isEdit" class="update" (click)="editTask(task.id)">Edit</button>
+    <button *ngIf="!task.isEdit" class="completed" (click)="completeTask(task.id) ">{{ task.isCompleted ? 'Undo' : 'Completed' }}</button>
+
+  </li>
+  <li><button class="delete" (click)="deleteTask(task.id)">Delete</button></li>
+</ul>
+}

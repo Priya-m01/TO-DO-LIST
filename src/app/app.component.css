@@ -1,0 +1,71 @@
+h1 {
+  text-align: center;
+  color: #007bff;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row; 
+  align-items: flex-start;
+  margin-bottom: 12px;
+  justify-content: center;
+}
+
+.input-container .input {
+  width: 100%; 
+  padding: 12px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.input-container .datetime{
+  padding: 6px;
+  border-radius: 25px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.task-List {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.task-List li {
+  flex: 1;
+}
+
+.completed-text {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.delete {
+  background-color: #dc3545;
+}
+
+.delete:hover {
+  background-color: #c82333;
+}
